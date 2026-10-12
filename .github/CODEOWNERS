@@ -1,0 +1,9 @@
+# Dono do contexto revisa o que toca o seu módulo.
+# Substitua os usuários no kickoff técnico.
+*                     @veterano-back @veterano-front
+/backend/             @veterano-back
+/frontend/            @veterano-front
+/backend/cobranca/    @dono-cobranca
+/backend/identidade/  @dono-identidade
+/backend/ia/          @dono-ia
+/.github/             @gerente-do-projeto

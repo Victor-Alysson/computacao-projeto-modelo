@@ -1,0 +1,21 @@
+name: ci
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Instalar dependências
+        run: |
+          if [ -f package-lock.json ]; then npm ci; elif [ -f package.json ]; then npm install; else echo "Sem package.json ainda"; fi
+      - name: Lint
+        run: if [ -f package.json ]; then npm run lint --if-present; fi
+      - name: Testes
+        run: if [ -f package.json ]; then npm test --if-present; fi
