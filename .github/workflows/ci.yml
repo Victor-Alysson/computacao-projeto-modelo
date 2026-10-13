@@ -19,3 +19,9 @@ jobs:
         run: if [ -f package.json ]; then npm run lint --if-present; fi
       - name: Testes
         run: if [ -f package.json ]; then npm test --if-present; fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Testes do back-end
+        working-directory: backend
+        run: pip install -r requirements.txt && pytest
